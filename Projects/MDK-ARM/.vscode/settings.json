@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "malloc.h": "c",
+        "key.h": "c",
+        "atim.h": "c",
+        "led.h": "c",
+        "oled.h": "c",
+        "exti.h": "c",
+        "sys.h": "c"
+    }
+}
