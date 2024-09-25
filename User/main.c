@@ -34,15 +34,17 @@ timer: 进行 PID 闭环
 Modification History    	:
 Data            Author       Version         Change Description
 =======================================================
-24/9/24        wangyanxin    1.0              Original
+24/9/24        wangyanxin    1.0              add led,key
+24/9/25        wangyanxin    1.1              adc
+
 ***
 
 PIN DESCRIPTION
 
 ADC:
-PA0 -> ADC1
-PA1 -> ADC2
-PA2 -> ADC3
+PA0 -> ADC_ch1(输出电压)
+PA1 -> ADC_ch2(输出电流)
+PA2 -> ADC_ch3(输入电压)
 
 按键:
 PA3 -> key1
@@ -69,6 +71,7 @@ PA7 -> 蓝灯
 #include "./BSP/KEY/key.h"
 #include "./MALLOC/malloc.h"
 #include "freertos_demo.h"
+#include "./BSP/KEY/exti.h"
 
 int main(void)
 {
@@ -77,10 +80,10 @@ int main(void)
     delay_init(72);                     /* 延时初始化 */
     usart_init(115200);                 /* 串口初始化为115200 */
 
-    oled_init();                        /* OLED初始化 */
+//    oled_init();                        /* OLED初始化 */
     led_init();                         /* 初始化LED */
     key_init();                         /* 初始化按键 */
-    my_mem_init(SRAMIN);                /* 初始化内部SRAM内存池 */
+//    my_mem_init(SRAMIN);                /* 初始化内部SRAM内存池 */
     exti_init();                        /* 外部中断初始化 */
     freertos_demo();                    /* 运行FreeRTOS例程 */
 }

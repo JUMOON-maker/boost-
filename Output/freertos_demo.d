@@ -63,6 +63,7 @@
 ..\..\output\freertos_demo.o: ..\..\Drivers\./SYSTEM/USART/usart.h
 ..\..\output\freertos_demo.o: D:\keil\ARM\compiler5\Bin\..\include\stdio.h
 ..\..\output\freertos_demo.o: ..\..\Drivers\./BSP/LED/led.h
+..\..\output\freertos_demo.o: ..\..\Drivers\./BSP/ADC/adc.h
 ..\..\output\freertos_demo.o: ..\..\Middlewares\FreeRTOS\include\FreeRTOS.h
 ..\..\output\freertos_demo.o: ..\..\User\FreeRTOSConfig.h
 ..\..\output\freertos_demo.o: ..\..\Middlewares\FreeRTOS\include\projdefs.h
@@ -72,3 +73,4 @@
 ..\..\output\freertos_demo.o: ..\..\Middlewares\FreeRTOS\include\mpu_wrappers.h
 ..\..\output\freertos_demo.o: ..\..\Middlewares\FreeRTOS\include\task.h
 ..\..\output\freertos_demo.o: ..\..\Middlewares\FreeRTOS\include\list.h
+..\..\output\freertos_demo.o: ..\..\Middlewares\FreeRTOS\include\queue.h

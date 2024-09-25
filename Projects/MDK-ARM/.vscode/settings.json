@@ -6,6 +6,7 @@
         "led.h": "c",
         "oled.h": "c",
         "exti.h": "c",
-        "sys.h": "c"
+        "sys.h": "c",
+        "adc.h": "c"
     }
 }

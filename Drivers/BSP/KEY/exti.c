@@ -34,7 +34,7 @@ void KEY1_INT_IRQHandler(void)
  * @param       GPIO_Pin:中断引脚号
  * @retval      无
  */
-extern uint8_t work_flag = 0;           // 工作状态相关全局变量
+extern uint8_t work_flag;           // 工作状态相关全局变量
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {

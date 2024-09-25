@@ -65,3 +65,4 @@
 ..\..\output\main.o: ..\..\Drivers\./BSP/KEY/key.h
 ..\..\output\main.o: ..\..\Middlewares\./MALLOC/malloc.h
 ..\..\output\main.o: ..\..\User\freertos_demo.h
+..\..\output\main.o: ..\..\Drivers\./BSP/KEY/exti.h
