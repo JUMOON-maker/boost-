@@ -35,8 +35,8 @@ Modification History    	:
 Data            Author       Version         Change Description
 =======================================================
 24/9/24        wangyanxin    1.0              add led,key
-24/9/25        wangyanxin    1.1              adc
-
+24/9/25        wangyanxin    1.1              add adc
+24/9/26        wangyanxin    1.2              add pwm, adc display trans
 ***
 
 PIN DESCRIPTION
@@ -50,9 +50,9 @@ PA2 -> ADC_ch3(输入电压)
 PA3 -> key1
 PA4 -> key2
 
-PWM(TIM2):
-PB3  -> PWM1
-PA15 -> PWM2
+PWM(TIM1):
+PA8  -> PWM1_ch1
+PB13 -> PWM1_ch1n
 
 OLED:
 PB6 -> IIC_SCL
@@ -75,15 +75,17 @@ PA7 -> 蓝灯
 
 int main(void)
 {
-    HAL_Init();                         /* 初始化HAL库 */
-    sys_stm32_clock_init(RCC_PLL_MUL9); /* 设置时钟, 72Mhz */
-    delay_init(72);                     /* 延时初始化 */
-    usart_init(115200);                 /* 串口初始化为115200 */
+    HAL_Init();                                     /* 初始化HAL库 */
+    sys_stm32_clock_init(RCC_PLL_MUL9);             /* 设置时钟, 72Mhz */
+    delay_init(72);                                 /* 延时初始化 */
+    usart_init(115200);                             /* 串口初始化为115200 */
 
-//    oled_init();                        /* OLED初始化 */
-    led_init();                         /* 初始化LED */
-    key_init();                         /* 初始化按键 */
-//    my_mem_init(SRAMIN);                /* 初始化内部SRAM内存池 */
-    exti_init();                        /* 外部中断初始化 */
-    freertos_demo();                    /* 运行FreeRTOS例程 */
+//    oled_init();                                  /* OLED初始化 */
+    led_init();                                     /* 初始化LED */
+    key_init();                                     /* 初始化按键 */
+    atim_timx_cplm_pwm_init(1000 - 1, 72 - 1);      /* 1Mhz 的计数频率 1Khz 的周期 */
+    atim_timx_cplm_pwm_set(300, 100);               /* 占空比:7:3, 死区时间 100*tDTS */
+//    my_mem_init(SRAMIN);                          /* 初始化内部SRAM内存池 */
+    exti_init();                                    /* 外部中断初始化 */
+    freertos_demo();                                /* 运行FreeRTOS例程 */
 }

@@ -60,5 +60,8 @@
 ..\..\output\exti.o: ..\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h
 ..\..\output\exti.o: ..\..\Drivers\./SYSTEM/delay/delay.h
 ..\..\output\exti.o: ..\..\Drivers\./BSP/LED/led.h
+..\..\output\exti.o: ..\..\Drivers\./SYSTEM/USART/usart.h
+..\..\output\exti.o: D:\keil\ARM\compiler5\Bin\..\include\stdio.h
 ..\..\output\exti.o: ..\..\Drivers\./BSP/KEY/key.h
 ..\..\output\exti.o: ..\..\Drivers\./BSP/KEY/exti.h
+..\..\output\exti.o: ..\..\Drivers\./BSP/PWM/atim.h

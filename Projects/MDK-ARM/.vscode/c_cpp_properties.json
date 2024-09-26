@@ -22,7 +22,7 @@
                 "f:\\srtp_f1\\version_1\\Drivers\\BSP\\KEY",
                 "f:\\srtp_f1\\version_1\\Drivers\\BSP\\ADC",
                 "f:\\srtp_f1\\version_1\\Drivers\\BSP\\OLED",
-                "f:\\srtp_f1\\version_1\\Drivers\\BSP\\TIMER",
+                "f:\\srtp_f1\\version_1\\Drivers\\BSP\\PWM",
                 "f:\\srtp_f1\\version_1\\Middlewares\\MALLOC",
                 "f:\\srtp_f1\\version_1\\Middlewares\\FreeRTOS",
                 "f:\\srtp_f1\\version_1\\Middlewares\\FreeRTOS\\portable\\MemMang",

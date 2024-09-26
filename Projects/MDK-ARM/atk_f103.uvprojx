@@ -535,14 +535,14 @@
               <FilePath>..\..\Drivers\BSP\OLED\oled.c</FilePath>
             </File>
             <File>
-              <FileName>atim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Drivers\BSP\TIMER\atim.c</FilePath>
-            </File>
-            <File>
               <FileName>exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Drivers\BSP\KEY\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>atim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\PWM\atim.c</FilePath>
             </File>
           </Files>
         </Group>

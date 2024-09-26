@@ -596,8 +596,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Drivers\BSP\TIMER\atim.c</PathWithFileName>
-      <FilenameWithoutPath>atim.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\Drivers\BSP\KEY\exti.c</PathWithFileName>
+      <FilenameWithoutPath>exti.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -608,8 +608,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Drivers\BSP\KEY\exti.c</PathWithFileName>
-      <FilenameWithoutPath>exti.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\Drivers\BSP\PWM\atim.c</PathWithFileName>
+      <FilenameWithoutPath>atim.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

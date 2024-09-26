@@ -7,6 +7,7 @@
         "oled.h": "c",
         "exti.h": "c",
         "sys.h": "c",
-        "adc.h": "c"
+        "adc.h": "c",
+        "queue.h": "c"
     }
 }

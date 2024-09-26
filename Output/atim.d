@@ -1,5 +1,5 @@
-..\..\output\atim.o: ..\..\Drivers\BSP\TIMER\atim.c
-..\..\output\atim.o: ..\..\Drivers\./BSP/TIMER/atim.h
+..\..\output\atim.o: ..\..\Drivers\BSP\PWM\atim.c
+..\..\output\atim.o: ..\..\Drivers\./BSP/PWM/atim.h
 ..\..\output\atim.o: ..\..\Drivers\./SYSTEM/sys/sys.h
 ..\..\output\atim.o: ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
 ..\..\output\atim.o: ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h

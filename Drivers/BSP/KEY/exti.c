@@ -1,9 +1,10 @@
 #include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
+#include "./SYSTEM/USART/usart.h"
 #include "./BSP/KEY/key.h"
 #include "./BSP/KEY/exti.h"
-
+#include "./BSP/PWM/atim.h"
 
 /**
  * @brief       KEY0 外部中断服务程序
@@ -38,6 +39,8 @@ extern uint8_t work_flag;           // 工作状态相关全局变量
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+    // 记录占空比初始值，以便于使用按键控制
+    static uint16_t oring_pwm = 300;
     delay_ms(20);      /* 消抖 */
     switch(GPIO_Pin)
     {
@@ -45,6 +48,15 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
             {
                 if (KEY0 == KEY_PRES)
                 {
+                    if( oring_pwm != 1000)
+                    {
+                        atim_timx_cplm_pwm_set(oring_pwm ++, 100);               /* 占空比:7:3, 死区时间 100*tDTS */
+                    }
+                    else
+                    {
+                        printf("数值已到最大值！！！");
+                    }
+
                     work_flag = UP;
                 }
             }
@@ -54,6 +66,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
             {
                 if (KEY1 == KEY_PRES)
                 {
+                    if( oring_pwm != 0)
+                    {
+                        atim_timx_cplm_pwm_set(oring_pwm --, 100);               /* 占空比:7:3, 死区时间 100*tDTS */
+                    }
+                    else
+                    {
+                        printf("数值已到最小值！！！");
+                    }
                     work_flag = DOWN;
                 }
             }

@@ -116,8 +116,6 @@ void freertos_demo(void)
 void start_task(void *pvParameters)
 {
     taskENTER_CRITICAL();           /* 进入临界区 */
-    /* 初始化 PWM 定时器 */
-
     /* 创建任务1 */
     xTaskCreate((TaskFunction_t )task1,
                 (const char*    )"task1",
@@ -191,12 +189,60 @@ void task1(void *pvParameters)
 }
 
 
-/* 任务2：OLED显示输入电压，输出电压，输出电流 */
+/* 任务2：串口屏显示输入电压，输出电压，输出电流 */
+/* 以下是采集电路的最大值 */
+#define VIN_REF  3.3
+#define VOUT_REF 3.3
+#define IOUT_REF 3.3
 void task2(void *pvParameters)
 {
+    uint8_t error = 0;              // 指示接受错误标志
+    // 以下变量用来存储接受队列的 AD 值
+    uint16_t vin_AD_data  = 0;
+    uint16_t vout_AD_data = 0;
+    uint16_t iout_AD_data = 0;
+
+    float vin_data  = 0;
+    float vout_data = 0;
+    float iout_data = 0;
     while (1)
     {
         // 处理 AD 原始数据并将其转换为电压值
+        // 先从三个队列中取出相关数据
+        // 利用编写的转换函数将ADC转换成实际电压
+        // 进行显示
+        if( xQueueReceive( AD0_queue, &vin_AD_data, portMAX_DELAY ) != error )
+        {
+            vin_data = AD_Trans( vin_AD_data, VIN_REF );
+            printf("接受输入电压数据成功！！");
+            printf("输入电压为 :%f", vin_data);
+        }
+        else
+        {
+            printf("接受输入电压失败");
+        }
+
+        if( xQueueReceive( AD1_queue, &vout_AD_data, portMAX_DELAY ) != error )
+        {
+            vout_data = AD_Trans( vout_AD_data, VOUT_REF );
+            printf("接受输出电压数据成功！！");
+            printf("输出电压为 :%f", vout_data);
+        }
+        else
+        {
+            printf("接受输出电压失败");
+        }
+
+        if( xQueueReceive( AD2_queue, &iout_AD_data, portMAX_DELAY ) != error )
+        {
+            iout_data = AD_Trans( iout_AD_data, IOUT_REF );
+            printf("接受输出电流数据成功！！");
+            printf("输出电流为 :%f", iout_data);
+        }
+        else
+        {
+            printf("接受输出电流失败");
+        }
 
         vTaskDelay(1000);
     }
